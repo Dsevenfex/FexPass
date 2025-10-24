@@ -1,4 +1,4 @@
-from utils.F import Logo,Line,clear_console
+from utils.Logo import Logo,Line,clear_console
 from colorama import Fore
 from utils.password_generator import password_generate
 import re
@@ -19,16 +19,6 @@ def Main():
           Line()
           print("If you don't have it, just write (N)")
           while True :
-             Birth=input(f"{Fore.GREEN}Date of birth (dd/mm/yyyy): ")
-             if Birth != "N":
-              if re.match(r'^\d{2}/\d{2}/\d{4}$', Birth):
-               break  
-              else:
-               print("(dd/mm/yyyy)")
-             else:
-              break
-             
-          while True :
              min_length=input("minimum pasword length :")
              try:
                 main_min_length=int(min_length)
@@ -38,17 +28,36 @@ def Main():
                   print("(only number)")
              except:
                 print("(only number)")
-                
 
-             
-
+          while True :
+             Birth=input(f"{Fore.GREEN}Date of birth (dd/mm/yyyy): ")
+             if Birth != "N":
+              if re.match(r'^\d{2}/\d{2}/\d{4}$', Birth):
+               break  
+              else:
+               print("(dd/mm/yyyy)")
+             else:
+              break
+          def num():
+              
+              while True :
+                    stringNum=input(f"{Fore.GREEN}Favorite number: ")
+                    try:
+                     intNum=int(stringNum)
+                     if type(intNum) == int:
+                        break  
+                     else:
+                        print("(only number)")
+                    except:
+                       print("(only number)")
+    
           user_data={
           "Username": input(f"{Fore.GREEN}Username: "),
           "Name":input(f"{Fore.GREEN}Name: "),
           "Surname":input(f"{Fore.GREEN}Surname: "),
           "Pet":input(f"{Fore.GREEN}Pet name: "),
           "Color":input(f"{Fore.GREEN}Favorite color: "),
-          "Fnumber":input(f"{Fore.GREEN}Favorite number: "),
+          "Fnumber":num(),
           "Fperson":input(f"{Fore.GREEN}Favorite person name: "),
           "Game":input(f"{Fore.GREEN}Favorite game: "),
           "Sport":input(f"{Fore.GREEN}Favorite sport: "),
@@ -59,11 +68,16 @@ def Main():
           "Birth":Birth,
           "min_length":main_min_length
           }
-          password_generate(user_data) # დასამატებელია
-         
           clear_console()
           Logo()
           Line()     
+          password_generate(user_data)
+          Line()    
+          input(f"{Fore.RED}Go back : ")
+          Main()
+
+
+
      else:
           clear_console()
           Logo()
