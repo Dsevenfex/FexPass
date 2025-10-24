@@ -1,4 +1,4 @@
-<center><img src="image/FexPass.png"></center>
+<center><img src="image/FexPass.PNG"></center>
 # FexPass
 
 This is a password generator tool that creates ,  password suggestions based on user input. It uses personal information such as username, name, surname, date of birth, favorite things, and other customizable fields to generate a list of potential passwords.
